@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beats Fitness Studio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #0a0a0a;
+    color: #fff;
+    scroll-behavior: smooth;
+}
+
+/* Navbar */
+nav {
+    position: fixed;
+    width: 100%;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+nav h2 {
+    color: #ff3c00;
+}
+
+nav a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+/* Hero */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)),
+    url('https://images.unsplash.com/photo-1581009137042-c552e485697a') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 50px;
+}
+
+.hero p {
+    margin: 20px 0;
+    font-size: 18px;
+}
+
+.btn {
+    padding: 12px 30px;
+    background: linear-gradient(45deg, #ff3c00, #ff7300);
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+/* Sections */
+section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+/* Services */
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    padding: 30px;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    background: rgba(255,255,255,0.1);
+}
+
+/* Form Styles */
+.form-container {
+    max-width: 500px; 
+    margin: 40px auto 0; 
+    background: rgba(255,255,255,0.05); 
+    padding: 30px; 
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #ff3c00;
+}
+
+.form-group input {
+    width: 100%; 
+    padding: 12px; 
+    border-radius: 8px; 
+    border: 1px solid #333; 
+    background: #1a1a1a; 
+    color: #fff;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: #ff3c00;
+}
+
+/* Contact */
+.contact {
+    background: #111;
+}
+
+/* Footer */
+footer {
+    padding: 20px;
+    background: black;
+    text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<h2>Beats Fitness</h2>
+<div>
+<a href="#">Home</a>
+<a href="#services">Services</a>
+<a href="#join">Join</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
+
+<div class="hero">
+<div data-aos="fade-up">
+<h1>LEVEL UP YOUR FITNESS</h1>
+<p>CrossFit • Zumba • Strength Training</p>
+<button class="btn" onclick="scrollToForm()">Join Now</button>
+</div>
+</div>
+
+<section data-aos="fade-up">
+<h2>About Us</h2>
+<p>Premium fitness training with expert coaching by Yaswanth. Build strength, endurance, and confidence.</p>
+</section>
+
+<section id="services">
+<h2 data-aos="fade-up">Our Services</h2>
+<div class="services">
+<div class="card" data-aos="zoom-in">CrossFit</div>
+<div class="card" data-aos="zoom-in">Weight Training</div>
+<div class="card" data-aos="zoom-in">Zumba</div>
+<div class="card" data-aos="zoom-in">Flexibility</div>
+</div>
+</section>
+
+<section id="join" data-aos="fade-up">
+    <h2>Registration</h2>
+    <p>Sign up today and start your journey</p>
+    <div class="form-container">
+        <form id="registrationForm">
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" id="userName" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label>Date of Birth</label>
+                <input type="date" id="userDob" onchange="calculateAge()" required>
+            </div>
+
+            <div class="form-group">
+                <label>Age</label>
+                <input type="text" id="userAge" placeholder="Your age will appear here" readonly style="background: #000;">
+            </div>
+
+            <div class="form-group">
+                <label>Gym Location</label>
+                <input type="text" value="C Camp, Kurnool" readonly style="background: #000;">
+            </div>
+
+            <button type="submit" class="btn" style="width: 100%; margin-top: 10px;">Submit Details</button>
+        </form>
+    </div>
+</section>
+
+<section id="contact" class="contact" data-aos="fade-up">
+<h2>Contact Us</h2>
+<p>📞 098486 68773</p>
+<p>📍 C Camp, Kurnool</p>
+</section>
+
+<footer>
+© 2026 Beats Fitness Studio
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+    // Initialize Animations
+    AOS.init({
+        duration: 1000
+    });
+
+    // Function to scroll to the form section
+    function scrollToForm() {
+        document.getElementById('join').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Function to calculate age automatically
+    function calculateAge() {
+        const dobInput = document.getElementById('userDob').value;
+        if (!dobInput) return;
+
+        const birthDate = new Date(dobInput);
+        const today = new Date();
+        
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const monthDifference = today.getMonth() - birthDate.getMonth();
+        
+        // Adjust age if birthday hasn't occurred yet this year
+        if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        
+        document.getElementById('userAge').value = age + " years old";
+    }
+
+    // Prevent page reload on form submit for demonstration
+    document.getElementById('registrationForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Thank you for registering with Beats Fitness Studio!');
+    });
+</script>
+
+</body>
+</html>
